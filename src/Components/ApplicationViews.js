@@ -28,37 +28,22 @@ export default class ApplicationViews extends Component {
             .then(() => this.setState(newState))
     }
 
-    deleteAnimal = id => {
-        return fetch(`http://localhost:5002/animals/${id}`, {
-            method: "DELETE"
-        })
-            .then(e => e.json())
-            .then(() => fetch(`http://localhost:5002/animals`))
-            .then(e => e.json())
+    deleteAnimal = (database, id) => {
+        apiManager.get(database, id)
             .then(animals => this.setState({
                 animals: animals
             })
             )
     }
-    deleteEmployee = id => {
-        return fetch(`http://localhost:5002/employees/${id}`, {
-            method: "DELETE"
-        })
-            .then(d => d.json())
-            .then(() => fetch(`http://localhost:5002/employees`))
-            .then(d => d.json())
+    deleteEmployee = (database, id) => {
+        apiManager.get(database, id)
             .then(employees => this.setState({
                 employees: employees
             })
             )
     }
-    deleteOwner = id => {
-        return fetch(`http://localhost:5002/owners/${id}`, {
-            method: "DELETE"
-        })
-            .then(d => d.json())
-            .then(() => fetch(`http://localhost:5002/owners`))
-            .then(d => d.json())
+    deleteOwner = (database, id) => {
+        apiManager.get(database, id)
             .then(owners => this.setState({
                 owners: owners
             })

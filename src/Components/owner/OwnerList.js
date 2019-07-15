@@ -13,7 +13,7 @@ export default class OwnerList extends Component {
                                     {/* <img src={dog} className="icon--dog" alt="Dog" /> */}
                                     <h5>{owner.name}</h5>
                                     <button
-                                        onClick={() => this.props.deleteOwner(owner.id)}
+                                        onClick={() => this.props.deleteOwner("owners", owner.id)}
                                         className="card-link">Delete</button>
                                 </div>
                             </div>
