@@ -35,14 +35,6 @@
       "name": "Doodles"
     },
     {
-      "id": 3,
-      "name": "Angus"
-    },
-    {
-      "id": 4,
-      "name": "Henley"
-    },
-    {
       "id": 6,
       "name": "Checkers"
     },
@@ -61,11 +53,6 @@
       "id": 2,
       "phoneNumber": "555-555-2345",
       "name": "Vince Vaughn"
-    },
-    {
-      "id": 4,
-      "phoneNumber": "555-555-4567",
-      "name": "Dwayne Johnson"
     }
   ]
 }
