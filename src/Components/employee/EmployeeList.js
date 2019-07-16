@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import "./Employee.css"
 import person from "./employee.svg"
-
-export default class EmployeeList extends Component {
+    export default class EmployeeList extends Component {
     render() {
         return (
             <section className="employee">
@@ -25,6 +24,6 @@ export default class EmployeeList extends Component {
                     )
                 }
             </section>
-            )
-        }
+        )
+    }
 }
