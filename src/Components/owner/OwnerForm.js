@@ -51,6 +51,7 @@ export default class ownerForm extends Component {
               onChange={this.handleFieldChange}
               id="ownerName"
               placeholder="Owner Name"
+              autoFocus
             />
             </div>
             <div>

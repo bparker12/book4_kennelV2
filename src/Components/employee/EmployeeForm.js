@@ -51,8 +51,9 @@ export default class EmployeeForm extends Component {
               onChange={this.handleFieldChange}
               id="employeeName"
               placeholder="Employee Name"
+              autoFocus
             />
-            </div>  
+            </div>
           <button
             type="submit"
             onClick={this.constructNewEmployee}

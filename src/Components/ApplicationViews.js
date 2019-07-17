@@ -1,4 +1,4 @@
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import React, { Component } from "react"
 import { withRouter } from 'react-router'
 import AnimalList from './animal/AnimalList'
@@ -13,6 +13,7 @@ import OwnerList from './owner/OwnerList'
 import OwnerDetail from './owner/OwnerDetail'
 import OwnerForm from './owner/OwnerForm'
 import apiManager from "../modules/apiManager"
+import Login from './authentication/Login'
 
 class ApplicationViews extends Component {
     state = {
@@ -35,6 +36,8 @@ class ApplicationViews extends Component {
             .then(owners => newState.owners = owners)
             .then(() => this.setState(newState))
     }
+    //verifies if user is logged in session storage
+    isAuthenticated = () => sessionStorage.getItem("credentials") !== null
 
     deleteAnimal = (database, id) => {
         apiManager.get(database, id)
@@ -99,7 +102,10 @@ class ApplicationViews extends Component {
         return (
             <React.Fragment>
                 <Route exact path="/" render={(props) => {
-                    return <LocationList locations={this.state.locations} />
+                    if (this.isAuthenticated())  { return <LocationList locations={this.state.locations} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }} />
                 <Route path="/locations/:locationId(\d+)" render={(props) => {
                     let location = this.state.locations.find(location =>
@@ -112,13 +118,17 @@ class ApplicationViews extends Component {
                 }} />
 
                 <Route exact path="/animals" render={(props) => {
-                    return <AnimalList {...props} deleteAnimal={this.deleteAnimal} animals={this.state.animals} />
+                        if (this.isAuthenticated()) {
+                        return <AnimalList {...props} deleteAnimal={this.deleteAnimal} animals={this.state.animals} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }} />
                 <Route path="/animals/new" render={(props) => {
                     return <AnimalForm {...props}
-                        addAnimal={this.addAnimal}
-                        employees={this.state.employees} />
+                        addAnimal={this.addAnimal} />
                 }} />
+
                 <Route path="/animals/:animalId(\d+)" render={(props) => {
                     let animal = this.state.animals.find(animal =>
                         animal.id === parseInt(props.match.params.animalId)
@@ -130,7 +140,12 @@ class ApplicationViews extends Component {
                 }} />
 
                 <Route exact path="/employees" render={(props) => {
-                    return <EmployeeList {...props} deleteEmployee={this.deleteEmployee} employees={this.state.employees} />
+                    if (this.isAuthenticated()) {
+                        return <EmployeeList {...props} deleteEmployee={this.deleteEmployee}
+                            employees={this.state.employees} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }} />
                 <Route path="/employees/new" render={(props) => {
                     return <EmployeeForm {...props}
@@ -147,11 +162,15 @@ class ApplicationViews extends Component {
                 }} />
 
                 <Route exact path="/owners" render={(props) => {
-                    return <OwnerList {...props} deleteOwner={this.deleteOwner} owners={this.state.owners} />
+                    if (this.isAuthenticated()) {
+                        return <OwnerList {...props} deleteOwner={this.deleteOwner} owners={this.state.owners} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }} />
                 <Route path="/owners/new" render={(props) => {
                     return <OwnerForm {...props}
-                        addOwner={this.addOwner}/>
+                        addOwner={this.addOwner} />
                 }} />
                 <Route path="/owners/:ownerId(\d+)" render={(props) => {
                     let owner = this.state.owners.find(owner =>
@@ -162,6 +181,7 @@ class ApplicationViews extends Component {
                     }
                     return <OwnerDetail deleteOwner={this.deleteOwner} owner={owner} />
                 }} />
+                <Route path="/login" component={Login} />
             </React.Fragment>
         )
     }

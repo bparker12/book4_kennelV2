@@ -8,6 +8,9 @@ class NavBar extends Component {
         return (
             <nav className="navbar navbar-light light-blue flex-md-nowrap p-0 shadow">
                 <ul className="nav nav-pills">
+                    <li className="nav-login">
+                        <Link className="nav-link" to="/login">Login</Link>
+                    </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/">Locations</Link>
                     </li>
