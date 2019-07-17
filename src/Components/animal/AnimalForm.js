@@ -52,6 +52,7 @@ export default class AnimalForm extends Component {
               onChange={this.handleFieldChange}
               id="animalName"
               placeholder="Animal name"
+              autoFocus
             />
           </div>
           <div className="form-group">
@@ -92,4 +93,4 @@ export default class AnimalForm extends Component {
       </React.Fragment>
     );
   }
-}   
+}
