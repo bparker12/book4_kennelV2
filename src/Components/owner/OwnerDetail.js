@@ -14,7 +14,8 @@ export default class owner extends Component {
                     <div className="card-body">
                         <div className="card-title">
                             <img src={boss} className="icon--owner" alt="owner" />
-                            {this.props.owner.name}
+                            <div>{this.props.owner.name}</div>
+                            <div>{this.props.owner.phoneNumber}</div>
                             <h6 className="card-title">{this.props.owner.title}</h6>
                             <button onClick={
                                 () => this.setState(
