@@ -41,15 +41,30 @@
   "animals": [
     {
       "id": 1,
-      "name": "Doodles"
+      "name": "Doodles",
+      "breed": "Golden Retreiver"
     },
     {
       "id": 6,
-      "name": "Checkers"
+      "name": "Checkers",
+      "breed": "Aussie"
     },
     {
       "id": 7,
-      "name": "Big Boy"
+      "name": "Big Boy",
+      "breed": "Mastive"
+    },
+    {
+      "name": "Riley",
+      "breed": "Boxer",
+      "employeeId": 1,
+      "id": 8
+    },
+    {
+      "name": "Fito",
+      "breed": "Pitbull",
+      "employeeId": 2,
+      "id": 9
     }
   ],
   "owners": [
@@ -62,6 +77,11 @@
       "id": 2,
       "phoneNumber": "555-555-2345",
       "name": "Vince Vaughn"
+    },
+    {
+      "name": "Roger Goodel",
+      "phoneNumber": "555-555-55591",
+      "id": 3
     }
   ]
 }

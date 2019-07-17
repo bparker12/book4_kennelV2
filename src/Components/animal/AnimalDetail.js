@@ -14,7 +14,7 @@ export default class Animal extends Component {
                     <div className="card-body">
                         <div className="card-title">
                             <img src={dog} className="icon--dog" alt="dog"/>
-                            {this.props.animal.name}
+                            <div>{this.props.animal.name}</div>
                             <h6 className="card-title">{this.props.animal.breed}</h6>
                             <button onClick={
                                 //Disabled is being input after an anonymous function (or lambda). Since setState() is an asynchronous operation, passing a function as the second parameter ensures that it is invoked after state is set.

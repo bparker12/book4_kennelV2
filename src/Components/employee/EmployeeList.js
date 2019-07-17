@@ -5,6 +5,16 @@ import person from "./employee.svg"
     export default class EmployeeList extends Component {
     render() {
         return (
+        <React.Fragment>
+            <div className="employeeButton">
+                <button type="button"
+                        className="btn btn-success"
+                        onClick={() => {
+                            this.props.history.push("/employees/new")}
+                        }>
+                    Admit Employee
+                </button>
+            </div>
             <section className="employee">
                 {/* <h2>Employees</h2> */}
                 {
@@ -24,6 +34,7 @@ import person from "./employee.svg"
                     )
                 }
             </section>
+            </React.Fragment>
         )
     }
 }
