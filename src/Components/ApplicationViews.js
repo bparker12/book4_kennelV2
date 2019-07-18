@@ -102,12 +102,13 @@ class ApplicationViews extends Component {
         return (
             <React.Fragment>
                 <Route exact path="/" render={(props) => {
-                    if (this.isAuthenticated())  { return <LocationList {...props} locations={this.state.locations} employees={this.state.employees} />
+                    if (this.isAuthenticated()) {
+                        return <LocationList {...props} locations={this.state.locations} employees={this.state.employees} />
                     } else {
                         return <Redirect to="/login" />
                     }
                 }} />
-                <Route path="/locations/:locationId(\d+)" render={(props) => {
+                <Route exact path="/locations/:locationId(\d+)" render={(props) => {
                     let location = this.state.locations.find(location =>
                         location.id === parseInt(props.match.params.locationId)
                     )
@@ -118,7 +119,7 @@ class ApplicationViews extends Component {
                 }} />
 
                 <Route exact path="/animals" render={(props) => {
-                        if (this.isAuthenticated()) {
+                    if (this.isAuthenticated()) {
                         return <AnimalList {...props} deleteAnimal={this.deleteAnimal} animals={this.state.animals} />
                     } else {
                         return <Redirect to="/login" />
@@ -128,8 +129,7 @@ class ApplicationViews extends Component {
                     return <AnimalForm {...props}
                         addAnimal={this.addAnimal} />
                 }} />
-
-                <Route path="/animals/:animalId(\d+)" render={(props) => {
+                <Route exact path="/animals/:animalId(\d+)" render={(props) => {
                     let animal = this.state.animals.find(animal =>
                         animal.id === parseInt(props.match.params.animalId)
                     )
@@ -138,6 +138,8 @@ class ApplicationViews extends Component {
                     }
                     return <AnimalDetail deleteAnimal={this.deleteAnimal} animal={animal} />
                 }} />
+                <Route path="/animals/:animalId(\d+)/edit" render={(props) => {return <AnimalForm {...props} employees={this.state.animals} updateAnimal={this.state.updateAnimal}/>
+                }}/>
 
                 <Route exact path="/employees" render={(props) => {
                     if (this.isAuthenticated()) {
@@ -152,7 +154,7 @@ class ApplicationViews extends Component {
                     return <EmployeeForm {...props}
                         addEmployee={this.addEmployee} />
                 }} />
-                <Route path="/employees/:employeeId(\d+)" render={(props) => {
+                <Route exact path="/employees/:employeeId(\d+)" render={(props) => {
                     let employee = this.state.employees.find(employee =>
                         employee.id === parseInt(props.match.params.employeeId)
                     )
@@ -161,6 +163,7 @@ class ApplicationViews extends Component {
                     }
                     return <EmployeeDetail deleteEmployee={this.deleteEmployee} employee={employee} />
                 }} />
+                <Route path="/employees/:employeeId(\d+)/edit" render={(props) => {return <EmployeeForm {...props} employees={this.state.employees} updateEmployee={this.state.updateEmployee}/>}}/>
 
                 <Route exact path="/owners" render={(props) => {
                     if (this.isAuthenticated()) {
@@ -182,6 +185,8 @@ class ApplicationViews extends Component {
                     }
                     return <OwnerDetail deleteOwner={this.deleteOwner} owner={owner} />
                 }} />
+                <Route path="/owners/:ownerId(\d+)/edit" render={(prop) => {return <OwnerForm {...props} employees={this.state.owners} updateOwner={this.state.updateOwner}/>
+                }}/>
                 <Route path="/login" component={Login} />
             </React.Fragment>
         )
