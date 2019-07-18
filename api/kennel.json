@@ -2,23 +2,28 @@
   "employees": [
     {
       "id": 1,
-      "name": "Jessica Younker"
+      "name": "Jessica Younker",
+      "locationId": 1
     },
     {
       "id": 2,
-      "name": "Jordan Nelson"
+      "name": "Jordan Nelson",
+      "locationId": 1
     },
     {
       "id": 3,
-      "name": "Zoe LeBlanc"
+      "name": "Zoe LeBlanc",
+      "locationId": 3
     },
     {
       "id": 4,
-      "name": "Leroy Jenkins"
+      "name": "Leroy Jenkins",
+      "locationId": 2
     },
     {
       "id": 5,
-      "name": "John Snow"
+      "name": "John Snow",
+      "locationId": 2
     }
   ],
   "locations": [

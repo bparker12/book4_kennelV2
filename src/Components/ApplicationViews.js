@@ -102,7 +102,7 @@ class ApplicationViews extends Component {
         return (
             <React.Fragment>
                 <Route exact path="/" render={(props) => {
-                    if (this.isAuthenticated())  { return <LocationList locations={this.state.locations} />
+                    if (this.isAuthenticated())  { return <LocationList {...props} locations={this.state.locations} employees={this.state.employees} />
                     } else {
                         return <Redirect to="/login" />
                     }
@@ -142,7 +142,8 @@ class ApplicationViews extends Component {
                 <Route exact path="/employees" render={(props) => {
                     if (this.isAuthenticated()) {
                         return <EmployeeList {...props} deleteEmployee={this.deleteEmployee}
-                            employees={this.state.employees} />
+                            employees={this.state.employees}
+                            animals={this.state.animals} />
                     } else {
                         return <Redirect to="/login" />
                     }

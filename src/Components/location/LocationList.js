@@ -1,28 +1,29 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom";
+import EmployeeCard from '../employee/EmployeeCard';
+import LocationCard from './LocationCard'
 
 export default class LocationList extends Component {
     render() {
         return (
-            <section className="location">
-                {/* <h2>locations</h2> */}
-                {
-                    this.props.locations.map(location =>
-                        <div key={location.id} className="card">
-                            <div className="card-body">
-                                <div className="card-title">
-                                    {/* <img src={person} className="icon--location" alt="location" /> */}
-                                    <h5>{location.name}</h5>
-                                    <Link className="nav-link" to={`/locations/${location.id}`}>Details</Link>
-                                    <button
-                                        onClick={() => this.props.deleteLocation("locations", location.id)}
-                                        className="card-link">Delete</button>
+            <React.Fragment>
+                <section className="location">
+                    {/* <h2>locations</h2> */}
+                    {
+                        this.props.locations.map(location =>
+                            <div key={location.id}> <LocationCard location= {location} {...this.prop} />
+                                <h6 className="card-subtitle mb-2 text-muted">Location For</h6>
+                                <div className="employees--location">
+                                    {
+                                        this.props.employees
+                                            .filter(emp => emp.locationId === location.id)
+                                            .map(emp => <EmployeeCard key={emp.id} employee={emp} {...this.props} />)
+                                    }
                                 </div>
                             </div>
-                        </div>
-                    )
-                }
-            </section>
+                        )
+                    }
+                </section>
+            </React.Fragment>
         )
     }
 }
