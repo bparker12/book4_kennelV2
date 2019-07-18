@@ -1,39 +1,38 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom";
 import "./Employee.css"
-import person from "./employee.svg"
-    export default class EmployeeList extends Component {
+import AnimalCard from "../animal/AnimalCard"
+import EmployeeCard from './EmployeeCard';
+export default class EmployeeList extends Component {
     render() {
         return (
-        <React.Fragment>
-            <div className="employeeButton">
-                <button type="button"
+            <React.Fragment>
+                <div className="employeeButton">
+                    <button type="button"
                         className="btn btn-success"
                         onClick={() => {
-                            this.props.history.push("/employees/new")}
+                            this.props.history.push("/employees/new")
+                        }
                         }>
-                    Admit Employee
+                        Admit Employee
                 </button>
-            </div>
-            <section className="employee">
+                </div>
                 {/* <h2>Employees</h2> */}
-                {
-                    this.props.employees.map(employee =>
-                        <div key={employee.id} className="card">
-                            <div className="card-body">
-                                <div className="card-title">
-                                    <img src={person} className="icon--employee" alt="employee" />
-                                    <h5>{employee.name}</h5>
-                                    <Link className="nav-link" to={`/employees/${employee.id}`}>Details</Link>
-                                    <button
-                                        onClick={() => this.props.deleteEmployee("employees", employee.id)}
-                                        className="card-link">Delete</button>
+                <section className="employee">
+                    {
+                        this.props.employees.map(employee =>
+                             <section key={employee.id}><EmployeeCard   employee={employee} {...this.props} />
+                                <h6 className="card-subtitle mb-2 text-muted">Caretaker For</h6>
+                                <div className="animals--caretaker">
+                                    {
+                                        this.props.animals
+                                            .filter(anml => anml.employeeId === employee.id)
+                                            .map(anml => <AnimalCard key={anml.id} animal={anml} {...this.props} />)
+                                    }
                                 </div>
-                            </div>
-                        </div>
-                    )
-                }
-            </section>
+                                </section>
+                        )
+                    }
+                </section>
             </React.Fragment>
         )
     }
