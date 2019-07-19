@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 class NavBar extends Component {
     render() {
         return (
-            <nav className="navbar navbar-light light-blue flex-md-nowrap p-0 shadow">
+            <nav className="navbar navbar-light light-blue flex-md-nowrap p-0 shadow background">
                 <ul className="nav nav-pills">
                     <li className="nav-login">
                         <Link className="nav-link" to="/login">Login</Link>

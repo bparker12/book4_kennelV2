@@ -13,6 +13,10 @@ export default class AnimalCard extends Component {
                         <img src={dog} className="icon--dog" alt="dog" />
                         <h5>{this.props.animal.name}</h5>
                         {/* <h5>{this.props.employees.name}</h5> */}
+                        {!window.location.href.includes("animals") ?
+                        <Link className="nav-link" to={`/animals/${this.props.animal.id}`}>Details</Link>
+                        :
+                        <div className="card-title">
                         <Link className="nav-link" to={`/animals/${this.props.animal.id}`}>Details</Link>
                         <button
                             // type="button"
@@ -23,7 +27,8 @@ export default class AnimalCard extends Component {
                         >Edit</button>
                         <button
                             onClick={() => this.openthis.props.deleteAnimal("animals", this.props.animal.id)}
-                            className="card-link">Discharge</button>
+                            className="card-link">Discharge</button></div>
+                        }
                     </div>
                 </div>
             </div>

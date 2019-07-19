@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Jessica Younker",
-      "locationId": 1
+      "locationId": 2
     },
     {
       "id": 2,
@@ -14,16 +14,6 @@
       "id": 3,
       "name": "Zoe LeBlanc",
       "locationId": 1
-    },
-    {
-      "id": 4,
-      "name": "Leroy Jenkins",
-      "locationId": 2
-    },
-    {
-      "id": 5,
-      "name": "John Snow",
-      "locationId": 2
     }
   ],
   "locations": [
@@ -54,7 +44,7 @@
       "id": 6,
       "name": "Checkers",
       "breed": "Aussie",
-      "employeeId": 2
+      "employeeId": 3
     },
     {
       "id": 7,
