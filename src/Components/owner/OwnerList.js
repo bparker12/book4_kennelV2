@@ -29,7 +29,7 @@ export default class OwnerList extends Component {
                                         <Link className="nav-link" to={`/owners/${owner.id}`}>Details</Link>
                                         <button
                                         className="btn btn-success"
-                                        onClick={() => this.props.history.push(`/owners/${this.props.owner.id}/edit}`)}>Edit</button>
+                                        onClick={() => this.props.history.push(`/owners/${owner.id}/edit`)}>Edit</button>
                                         <button
                                             onClick={() => this.props.deleteOwner("owners", owner.id)}
                                             className="card-link">Delete</button>

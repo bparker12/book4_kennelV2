@@ -11,10 +11,7 @@ export default class AnimalsList extends Component {
                         className="btn btn-success"
                         onClick={() => {
                             this.props.history.push("/animals/new")
-                        }
-                        }>
-                        Admit Animal
-                </button>
+                        }}>Admit Animal</button>
                 </div>
                 <section className="animals">
                     {/* <h2>Animals</h2> */}

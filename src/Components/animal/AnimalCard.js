@@ -12,6 +12,7 @@ export default class AnimalCard extends Component {
                     <div className="card-title">
                         <img src={dog} className="icon--dog" alt="dog" />
                         <h5>{this.props.animal.name}</h5>
+                        {/* <h5>{this.props.employees.name}</h5> */}
                         <Link className="nav-link" to={`/animals/${this.props.animal.id}`}>Details</Link>
                         <button
                             // type="button"
