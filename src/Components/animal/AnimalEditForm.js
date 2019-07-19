@@ -19,7 +19,7 @@ export default class AnimalEditForm extends Component {
     updateExistingAnimal = evt => {
         evt.preventDefault()
 
-        if (this.state.employee === "") {
+        if (!this.state.employeeId) {
           window.alert("Please select a caretaker");
         } else {
           const editedAnimal = {

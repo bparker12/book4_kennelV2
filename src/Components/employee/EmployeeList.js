@@ -20,8 +20,9 @@ export default class EmployeeList extends Component {
                 <section className="employee">
                     {
                         this.props.employees.map(employee =>
-                             <section key={employee.id}><EmployeeCard   employee={employee} {...this.props} />
-                                <h6 className="card-subtitle mb-2 text-muted">Caretaker For</h6>
+                            <section key={employee.id}>
+                            <EmployeeCard employee={employee} {...this.props} />
+                                <h6 className="card-title">Caretaker For</h6>
                                 <div className="animals--caretaker">
                                     {
                                         this.props.animals
@@ -29,7 +30,7 @@ export default class EmployeeList extends Component {
                                             .map(anml => <AnimalCard key={anml.id} animal={anml} {...this.props} />)
                                     }
                                 </div>
-                                </section>
+                            </section>
                         )
                     }
                 </section>

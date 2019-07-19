@@ -11,7 +11,7 @@ export default class LocationList extends Component {
                     {
                         this.props.locations.map(location =>
                             <div key={location.id}> <LocationCard location= {location} {...this.prop} />
-                                <h6 className="card-subtitle mb-2 text-muted">Location For</h6>
+                                <h6 className="card-title mb-2 text-muted">Location For</h6>
                                 <div className="employees--location">
                                     {
                                         this.props.employees
