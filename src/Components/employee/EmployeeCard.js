@@ -13,6 +13,9 @@ export default class EmployeeCard extends Component {
                         <h5>{this.props.employee.name}</h5>
                         <Link className="nav-link" to={`/employees/${this.props.employee.id}`}>Details</Link>
                         <button
+                            className="btn btn-success"
+                            onClick={() => this.props.history.push(`/employees/${this.props.employee.id}/edit`)}>Edit</button>
+                        <button
                             onClick={() => this.props.deleteEmployee("employees", this.props.employee.id)}
                             className="card-link">Fire</button>
                     </div>

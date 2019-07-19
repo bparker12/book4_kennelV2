@@ -38,6 +38,7 @@ export default class AnimalForm extends Component {
         .then(() => this.props.history.push("/animals"));
     }
   };
+    
 
   render() {
     return (

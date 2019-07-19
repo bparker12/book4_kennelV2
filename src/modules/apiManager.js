@@ -1,7 +1,11 @@
 const remoteURL = "http://localhost:5002"
 
 export default {
-  get(database, id) {
+    get(database, id) {
+      return fetch(`${remoteURL}/${database}/${id}`).then(e => e.json())
+    },
+
+  delete(database, id) {
     return fetch(`${remoteURL}/${database}/${id}`, {
       method: "DELETE"
     })
@@ -20,8 +24,17 @@ export default {
       },
       body: JSON.stringify(newAnimal)
     }).then(data => data.json())
-  }
+  },
 
+  put(database, editedObject) {
+    return fetch(`${remoteURL}/${database}/${editedObject.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(editedObject)
+    }).then(data => data.json());
+  }
 }
 
 
